@@ -1,0 +1,32 @@
+{
+    "name": "amazon_ses",
+    "display": "Amazon SES",
+    "description": "Amazon Simple Email Service",
+    "help": "http://guides.spreecommerce.com/integration/amazon_ses_integration.html",
+    "icon_url": "amazon_ses.png",
+    "services": [
+        {
+            "name": "send_email",
+            "path": "/send_email",
+            "description": "Sends Email",
+            "requires": {
+                "parameters": [
+                    {
+                        "name": "access_key_id",
+                        "description": "Your Amazon Access Key ID",
+                        "data_type": "string"
+                    },
+                    {
+                        "name": "secret_access_key",
+                        "description": "Your Amazon Secret Access Key",
+                        "data_type": "string"
+                    }            
+                ]
+            },
+            "recommends": {
+                "messages": ["shipment:ready"]
+            },
+            "produces": {}
+        }
+    ]
+}
