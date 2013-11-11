@@ -18,7 +18,7 @@ group :development do
 end
 
 group :test do
-  gem 'vcr', '2.6'
+  gem 'vcr', '2.7'
   gem 'rspec'
   gem 'webmock'
   gem 'guard-rspec'

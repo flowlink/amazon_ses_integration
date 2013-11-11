@@ -134,7 +134,7 @@ GEM
       rack
       raindrops (~> 0.7)
     uuidtools (2.1.4)
-    vcr (2.6.0)
+    vcr (2.7.0)
     webmock (1.15.2)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
@@ -162,5 +162,5 @@ DEPENDENCIES
   sinatra-contrib
   terminal-notifier-guard
   unicorn
-  vcr (= 2.6)
+  vcr (= 2.7)
   webmock
