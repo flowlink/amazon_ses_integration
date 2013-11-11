@@ -16,6 +16,11 @@ class Processor
   def self.remap_hash h
     h[:body_html] = h[:body][:html]
     h[:body_text] = h[:body][:text]
+
+    h[:to] = h[:to].split(',')
+    h[:cc] = h[:cc].split(',')
+    h[:bcc] = h[:bcc].split(',')
+    
     h
   end
 
