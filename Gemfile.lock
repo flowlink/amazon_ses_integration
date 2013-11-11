@@ -20,6 +20,10 @@ GEM
     addressable (2.3.5)
     atomic (1.1.14)
     awesome_print (1.2.0)
+    aws-sdk (1.11.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     backports (3.3.5)
     capistrano (3.0.1)
       i18n
@@ -129,6 +133,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuidtools (2.1.4)
     vcr (2.6.0)
     webmock (1.15.2)
       addressable (>= 2.2.7)
@@ -139,6 +144,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  aws-sdk
   capistrano
   debugger
   endpoint_base!

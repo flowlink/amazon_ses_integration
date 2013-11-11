@@ -14,17 +14,19 @@
                     {
                         "name": "access_key_id",
                         "description": "Your Amazon Access Key ID",
-                        "data_type": "string"
+                        "data_type": "string",
+                        "optional": false
                     },
                     {
                         "name": "secret_access_key",
                         "description": "Your Amazon Secret Access Key",
-                        "data_type": "string"
+                        "data_type": "string",
+                        "optional": false
                     }            
                 ]
             },
             "recommends": {
-                "messages": ["shipment:ready"]
+                "messages": ["email:send"]
             },
             "produces": {}
         }
