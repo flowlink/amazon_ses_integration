@@ -1,3 +1,4 @@
+require 'pry'
 require './lib/errors'
 
 class AmazonSesConfig
@@ -15,6 +16,6 @@ class AmazonSesConfig
 
   private
   def validate!
-    raise AuthorizationError, "Amazon access key ID and secret access key must be provided" if (access_key_id.nil? or secret_access_key.empty?)
+    raise AuthorizationError, "Amazon access key ID and secret access key must be provided" if (access_key_id.blank? or secret_access_key.blank?)
   end
 end
