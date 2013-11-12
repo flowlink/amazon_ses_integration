@@ -10,7 +10,7 @@ class AmazonSesEmailer < AmazonSesConfig
 
   private 
   def validate_email_hash! h
-    if h[:to].blank? or h[:from].blank? or h[:subject].blank? or (h[:body_html].blank? and h[:body_text].blank?)
+    if h[:to].blank? || h[:from].blank? || h[:subject].blank? || (h[:body_html].blank? && h[:body_text].blank?)
       raise InvalidArguments, "'to', 'from', 'subject', 'body_html' or 'body_text' attributes are required"
     end
   end

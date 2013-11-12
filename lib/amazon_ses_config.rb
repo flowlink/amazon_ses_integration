@@ -15,6 +15,6 @@ class AmazonSesConfig
 
   private
   def validate!
-    raise AuthorizationError, "Amazon access key ID and secret access key must be provided" if (access_key_id.blank? or secret_access_key.blank?)
+    raise AuthorizationError, "Amazon access key ID and secret access key must be provided" if (access_key_id.blank? || secret_access_key.blank?)
   end
 end

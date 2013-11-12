@@ -6,7 +6,7 @@ class Processor
     email_hash = remap_hash(email_hash)
     result = emailer.send!(email_hash)
 
-    if result.class == AWS::Core::Response and result[:message_id]
+    if result.class == AWS::Core::Response && result[:message_id]
       self.info_notification success_msg(email_hash[:email])
     end
   end
