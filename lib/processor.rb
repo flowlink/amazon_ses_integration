@@ -7,7 +7,7 @@ class Processor
     result = emailer.send!(email_hash)
 
     if result.class == AWS::Core::Response && result[:message_id]
-      self.info_notification success_msg(email_hash[:email])
+      self.info_notification success_msg(email_hash[:to])
     end
   end
 
@@ -33,10 +33,10 @@ class Processor
     }
   end
 
-  def self.success_msg email
+  def self.success_msg emails
     {
-      subject: "Successfully sent an email to #{email} via the Amazon Simple Email Service",
-      description: "Successfully sent an email to #{email} via the Amazon Simple Email Service"
+      subject: "Successfully sent an email to #{emails.join(', ')} via the Amazon Simple Email Service",
+      description: "Successfully sent an email to #{emails.join(', ')} via the Amazon Simple Email Service"
     }
   end
 end 
