@@ -25,16 +25,16 @@ module Factory
 
     def payload args={}
       {
-        "email" => {
-          "subject" => "Hello World",
-          "body" => {
-            "text" => "Hello World body",
-            "html" => "<h1>Hello World</h1><br>body"
+        :email => {
+          :subject => "Hello World",
+          :body => {
+            :text => "Hello World body",
+            :html => "<h1>Hello World</h1><br>body"
           },
-          "to" => "andrei@spreecommerce.com",
-          "from" => "andrei@spreecommerce.com",
-          "cc" => "andrei@spreecommerce.com,andrei.bondarev13@gmail.com",
-          "bcc" => "andrei@spreecommerce.com"
+          :to => "andrei@spreecommerce.com",
+          :from => "andrei@spreecommerce.com",
+          :cc => "andrei@spreecommerce.com,andrei.bondarev13@gmail.com",
+          :bcc => "andrei@spreecommerce.com"
         }
       }.merge(args)
     end

@@ -1,4 +1,3 @@
-require 'pry'
 require './lib/errors'
 
 class AmazonSesConfig

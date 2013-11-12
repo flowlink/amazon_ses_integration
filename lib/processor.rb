@@ -1,4 +1,3 @@
-require 'pry'
 class Processor
 
   def self.send_email! config, email_hash
@@ -7,7 +6,7 @@ class Processor
     email_hash = remap_hash(email_hash)
     result = emailer.send!(email_hash)
 
-    if result == nil
+    if result.class == AWS::Core::Response and result[:message_id]
       self.info_notification success_msg(email_hash[:email])
     end
   end
@@ -17,10 +16,10 @@ class Processor
     h[:body_html] = h[:body][:html]
     h[:body_text] = h[:body][:text]
 
-    h[:to] = h[:to].split(',')
-    h[:cc] = h[:cc].split(',')
-    h[:bcc] = h[:bcc].split(',')
-    
+    h[:to]  = h[:to].try(:split, ',')
+    h[:cc]  = h[:cc].try(:split, ',')
+    h[:bcc] = h[:bcc].try(:split, ',')
+
     h
   end
 
@@ -40,11 +39,4 @@ class Processor
       description: "Successfully sent an email to #{email} via the Amazon Simple Email Service"
     }
   end
-
-  # def self.already_subscribed_msg email
-  #   {
-  #     subject: "#{email} is already subscribed to the MailChimp list",
-  #     description: "#{email} is already subscribed to the MailChimp list"
-  #   }
-  # end
 end 

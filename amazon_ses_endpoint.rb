@@ -1,4 +1,3 @@
-require 'pry'
 Dir['./lib/**/*.rb'].each(&method(:require))
 
 class AmazonSesEndpoint < EndpointBase
@@ -35,7 +34,7 @@ class AmazonSesEndpoint < EndpointBase
       [
         {
           level: 'error',
-          subject: e.message.strip,
+          subject: "#{e.class}: #{e.message.strip}",
           description: { "backtrace" => e.backtrace }.to_s
         }
       ]

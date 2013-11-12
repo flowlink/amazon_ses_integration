@@ -9,7 +9,7 @@ gem 'capistrano'
 gem 'httparty'
 gem 'json'
 gem 'nokogiri'
-gem 'aws-sdk'
+gem 'aws-sdk', '1.25.0'
 
 group :development do
   gem 'shotgun'

@@ -20,9 +20,9 @@ GEM
     addressable (2.3.5)
     atomic (1.1.14)
     awesome_print (1.2.0)
-    aws-sdk (1.11.1)
+    aws-sdk (1.25.0)
       json (~> 1.4)
-      nokogiri (>= 1.4.4)
+      nokogiri (>= 1.4.4, < 1.6.0)
       uuidtools (~> 2.1)
     backports (3.3.5)
     capistrano (3.0.1)
@@ -69,15 +69,13 @@ GEM
       rb-inotify (>= 0.9)
     lumberjack (1.0.4)
     method_source (0.8.2)
-    mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.2)
     multi_xml (0.5.5)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
-    nokogiri (1.6.0)
-      mini_portile (~> 0.5.0)
+    nokogiri (1.5.10)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -144,7 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  aws-sdk
+  aws-sdk (= 1.25.0)
   capistrano
   debugger
   endpoint_base!

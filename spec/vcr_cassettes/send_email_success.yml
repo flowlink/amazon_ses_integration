@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://email.us-east-1.amazonaws.com/
+    body:
+      encoding: UTF-8
+      string: Action=SendEmail&Destination.BccAddresses.member.1=andrei%40spreecommerce.com&Destination.CcAddresses.member.1=andrei%40spreecommerce.com&Destination.CcAddresses.member.2=andrei.bondarev13%40gmail.com&Destination.ToAddresses.member.1=andrei%40spreecommerce.com&Message.Body.Html.Data=%3Ch1%3EHello%20World%3C%2Fh1%3E%3Cbr%3Ebody&Message.Body.Text.Data=Hello%20World%20body&Message.Subject.Data=Hello%20World&Source=andrei%40spreecommerce.com&Timestamp=2013-11-11T21%3A54%3A43Z&Version=2010-12-01
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=utf-8
+      Accept-Encoding:
+      - ''
+      Content-Length:
+      - '495'
+      User-Agent:
+      - aws-sdk-ruby/1.25.0 ruby/2.0.0 x86_64-darwin12.3.0
+      Host:
+      - email.us-east-1.amazonaws.com
+      X-Amz-Date:
+      - 20131111T215443Z
+      X-Amz-Content-Sha256:
+      - 290fba7c233ec465381057bf0ba665afe8870e66327f647492faeb46ab0931c3
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIQTUPETBD57CH4KQ/20131111/us-east-1/ses/aws4_request,
+        SignedHeaders=content-length;content-type;host;user-agent;x-amz-content-sha256;x-amz-date,
+        Signature=f2ea5a497287e985d17ad5d077436b21561b69245d0f6133953264d2adb739c5
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amzn-Requestid:
+      - d4f9af3b-4b1b-11e3-8e57-ffd04c4c2d6c
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '326'
+      Date:
+      - Mon, 11 Nov 2013 21:54:26 GMT
+    body:
+      encoding: UTF-8
+      string: |
+        <SendEmailResponse xmlns="http://ses.amazonaws.com/doc/2010-12-01/">
+          <SendEmailResult>
+            <MessageId>00000142492896b0-fb51c43c-d976-4f01-a1da-f9706631bfd8-000000</MessageId>
+          </SendEmailResult>
+          <ResponseMetadata>
+            <RequestId>d4f9af3b-4b1b-11e3-8e57-ffd04c4c2d6c</RequestId>
+          </ResponseMetadata>
+        </SendEmailResponse>
+    http_version: 
+  recorded_at: Mon, 11 Nov 2013 21:54:44 GMT
+recorded_with: VCR 2.7.0
