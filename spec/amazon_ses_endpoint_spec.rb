@@ -32,6 +32,20 @@ describe AmazonSesEndpoint do
     end
   end
 
+  it 'return error notification if email hash is missing' do
+    message['payload'].delete(:email)
+
+    post '/send_email', message.to_json, auth
+
+    last_response.status.should eq(500)
+
+    last_response.body.should match("message_id")
+    last_response.body.should match("notifications")
+    last_response.body.should match("error")
+    last_response.body.should match("InvalidArguments")
+    last_response.body.should match("Email hash must be provided")
+  end
+
   it 'returns error notification if subject is missing' do
     message['payload'][:email].delete(:subject)
 
@@ -43,6 +57,6 @@ describe AmazonSesEndpoint do
     last_response.body.should match("notifications")
     last_response.body.should match("error")
     last_response.body.should match("InvalidArguments")
-    last_response.body.should match("'to', 'from', 'subject', 'body_html' or 'body_text' attributes are required")
+    last_response.body.should match("'to', 'from', 'subject', 'body' attributes are required")
   end
 end

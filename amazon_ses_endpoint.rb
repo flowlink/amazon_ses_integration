@@ -16,7 +16,7 @@ class AmazonSesEndpoint < EndpointBase
 
   private
   def email_hash
-    @message[:payload][:email]
+    @message[:payload][:email] or raise InvalidArguments, 'Email hash must be provided'
   end
 
   def message_id

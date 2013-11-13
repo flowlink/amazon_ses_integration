@@ -2,28 +2,36 @@ class Processor
 
   def self.send_email! config, email_hash
     emailer = AmazonSesEmailer.new config
+    
+    validate_email_hash!(email_hash)
+    email_hash = remap_email_hash(email_hash)
 
-    email_hash = remap_hash(email_hash)
     result = emailer.send!(email_hash)
 
     if result.class == AWS::Core::Response && result[:message_id]
-      self.info_notification success_msg(email_hash[:to])
+      self.info_notification_with success_msg(email_hash[:to])
     end
   end
 
   private
-  def self.remap_hash h
+  def self.validate_email_hash! h
+    if h[:to].blank? || h[:from].blank? || h[:subject].blank? || h[:body].blank?
+      raise InvalidArguments, "'to', 'from', 'subject', 'body' attributes are required"
+    end
+  end
+
+  def self.remap_email_hash h
     h[:body_html] = h[:body][:html]
     h[:body_text] = h[:body][:text]
 
     h[:to]  = h[:to].try(:split, ',')
     h[:cc]  = h[:cc].try(:split, ',')
     h[:bcc] = h[:bcc].try(:split, ',')
-
+    
     h
   end
 
-  def self.info_notification msg
+  def self.info_notification_with msg
     { notifications:
       [
         {

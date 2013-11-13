@@ -2,11 +2,11 @@ module Factory
   class << self
 
     def access_key_id
-      'AKIAIQTUPETBD57CH4KQ'
+      '12345'
     end
 
     def secret_access_key
-      'MzY+7RpeUL5rq+cyJxEVU/NKyDslcPA/0O85Dp5Z'
+      '12345'
     end
 
     def config

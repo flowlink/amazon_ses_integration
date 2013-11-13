@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe AmazonSesEmailer do
   let (:config) { Factory.processed_config }
-  let (:email_hash) { Processor.remap_hash(Factory.payload[:email]) }
+  let (:email_hash) { Processor.remap_email_hash(Factory.payload[:email]) }
 
   subject { described_class.new(config) }
 
-  it 'raises InvalidArguments error when missing subject' do
+  it 'raises ArgumentError error when missing subject' do
     expect {
       email_hash.delete :subject
 
       subject.send!(email_hash)
-    }.to raise_error(InvalidArguments)
+    }.to raise_error(ArgumentError)
   end
 
   it '#send! returns correct response' do
