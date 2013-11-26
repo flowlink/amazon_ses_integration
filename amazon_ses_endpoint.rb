@@ -35,7 +35,8 @@ class AmazonSesEndpoint < EndpointBase
         {
           level: 'error',
           subject: "#{e.class}: #{e.message.strip}",
-          description: { "backtrace" => e.backtrace }.to_s
+          description: "#{e.class}: #{e.message.strip}",
+          backtrace: e.backtrace.to_a.join('\n\t')
         }
       ]
     }
