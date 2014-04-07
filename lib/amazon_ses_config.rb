@@ -4,8 +4,8 @@ class AmazonSesConfig
   attr_accessor :access_key_id, :secret_access_key, :ses
 
   def initialize config
-    @access_key_id = config['amazon_ses.access_key_id']
-    @secret_access_key = config['amazon_ses.secret_access_key']
+    @access_key_id = config['amazon_ses_access_key_id']
+    @secret_access_key = config['amazon_ses_secret_access_key']
 
     validate!
     

@@ -15,14 +15,14 @@ describe AmazonSesConfig do
 
   it 'raises error when secret_access_key is missing' do
     expect {
-      config.delete('amazon_ses.secret_access_key')
+      config.delete('amazon_ses_secret_access_key')
       instance = described_class.new(config)
     }.to raise_error AuthorizationError
   end
 
   it 'raises error when access_key_id is missing' do
     expect {
-      config.delete('amazon_ses.access_key_id')
+      config.delete('amazon_ses_access_key_id')
       instance = described_class.new(config)
     }.to raise_error AuthorizationError
   end  

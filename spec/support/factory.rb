@@ -1,6 +1,5 @@
 module Factory
   class << self
-
     def access_key_id
       '12345'
     end
@@ -10,16 +9,16 @@ module Factory
     end
 
     def config
-      [
-        { 'name' => 'amazon_ses.access_key_id', 'value' => access_key_id },
-        { 'name' => 'amazon_ses.secret_access_key', 'value' => secret_access_key }
-      ]
+      {
+        'amazon_ses_access_key_id' => access_key_id,
+        'amazon_ses_secret_access_key' => secret_access_key
+      }
     end
 
     def processed_config
       { 
-        'amazon_ses.access_key_id' => access_key_id,
-        'amazon_ses.secret_access_key' => secret_access_key
+        'amazon_ses_access_key_id' => access_key_id,
+        'amazon_ses_secret_access_key' => secret_access_key
       }
     end
 

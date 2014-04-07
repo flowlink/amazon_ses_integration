@@ -19,11 +19,11 @@ class AmazonSesEndpoint < EndpointBase::Sinatra::Base
 
   private
   def email_hash
-    @message[:payload][:email] or raise InvalidArguments, 'Email hash must be provided'
+    @payload[:email] or raise InvalidArguments, 'Email hash must be provided'
   end
 
   def message_id
-    @message[:message_id]
+    nil
   end
 
   def base_msg

@@ -3,20 +3,11 @@ require 'spec_helper'
 describe AmazonSesEndpoint do
 
   let(:message) {
-    {
-      'store_id' => '123229227575e4645c000001',
-      'message_id' => '123229227575e4645c000002',
-      'message' => 'email:send',
-      'payload' => Factory.payload({:parameters => Factory.config})
-    }
+    Factory.payload({:parameters => Factory.config})
   }
 
   def app
     AmazonSesEndpoint
-  end
-
-  def auth
-    {'HTTP_X_AUGURY_TOKEN' => 'x123', "CONTENT_TYPE" => "application/json"}
   end
 
   it 'sends e-mail' do
@@ -33,7 +24,7 @@ describe AmazonSesEndpoint do
   end
 
   it 'return error notification if email hash is missing' do
-    message['payload'].delete(:email)
+    message.delete(:email)
 
     post '/send_email', message.to_json, auth
 
@@ -47,7 +38,7 @@ describe AmazonSesEndpoint do
   end
 
   it 'returns error notification if subject is missing' do
-    message['payload'][:email].delete(:subject)
+    message[:email].delete(:subject)
 
     post '/send_email', message.to_json, auth
 
