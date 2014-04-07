@@ -32,15 +32,8 @@ GEM
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.0.9)
-    columnize (0.3.6)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
-    debugger (1.6.2)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.3)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.3)
     diff-lcs (1.2.4)
     dotenv (0.9.0)
     ffi (1.9.3)
@@ -144,7 +137,6 @@ DEPENDENCIES
   awesome_print
   aws-sdk (= 1.25.0)
   capistrano
-  debugger
   endpoint_base!
   foreman
   guard-rspec
