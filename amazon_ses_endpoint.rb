@@ -1,6 +1,9 @@
+require "sinatra"
+require "endpoint_base"
+
 Dir['./lib/**/*.rb'].each(&method(:require))
 
-class AmazonSesEndpoint < EndpointBase
+class AmazonSesEndpoint < EndpointBase::Sinatra::Base
   set :logging, true
 
   post '/send_email' do
