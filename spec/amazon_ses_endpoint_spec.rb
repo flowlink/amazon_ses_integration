@@ -15,10 +15,6 @@ describe AmazonSesEndpoint do
       post '/send_email', message.to_json, auth
 
       last_response.status.should eq(200)
-
-      last_response.body.should match("message_id")
-      last_response.body.should match("notifications")
-      last_response.body.should match("info")
       last_response.body.should match("Successfully sent an email to")
     end
   end
@@ -29,11 +25,6 @@ describe AmazonSesEndpoint do
     post '/send_email', message.to_json, auth
 
     last_response.status.should eq(500)
-
-    last_response.body.should match("message_id")
-    last_response.body.should match("notifications")
-    last_response.body.should match("error")
-    last_response.body.should match("InvalidArguments")
     last_response.body.should match("Email hash must be provided")
   end
 
@@ -43,11 +34,6 @@ describe AmazonSesEndpoint do
     post '/send_email', message.to_json, auth
 
     last_response.status.should eq(500)
-
-    last_response.body.should match("message_id")
-    last_response.body.should match("notifications")
-    last_response.body.should match("error")
-    last_response.body.should match("InvalidArguments")
     last_response.body.should match("'to', 'from', 'subject', 'body' attributes are required")
   end
 end
