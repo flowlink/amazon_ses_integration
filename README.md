@@ -1,6 +1,13 @@
-# Amazon Simple Email Service (SES) Endpoint
+# Amazon SES Endpoint
 
-For a detailted explanation check out the [Spree Guides - Amazon SES Endpoint](http://guides.spreecommerce.com/integration/amazon_ses_integration.html).
+[Amazon Simple Email Service](http://aws.amazon.com/ses/?nc1=h_l2_as) integration for Spree Commerce Hub
+
+#### Connection parameters
+
+| Name | Value | Example |
+| :----| :-----| :------ |
+| amazon_ses_access_key_id | Access Key ID | foobar |
+| amazon_ses_secret_access_key | Access Key | foooo |
 
 ## Send Email
 
